@@ -1,4 +1,5 @@
 import React from 'react';
+import {PlayerList} from './PlayerList';
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
@@ -7,10 +8,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 type Player = {
     firstName: string,
     lastName: string,
-}
-
-type PlayerListProps = {
-    players: Array<Player>,
 }
 
 const players: Array<Player> = [
@@ -28,23 +25,6 @@ const players: Array<Player> = [
     },
 ];
 
-
-const PlayerList = ({players}: PlayerListProps) => {
-    var rows = players.map((player) => (
-            <tr><td>{player.firstName}</td><td>{player.lastName}</td></tr>
-    ))
-    return (
-            <table className="table table-hover">
-              <thead>
-                <th scope="col">First name</th>
-                <th scope="col">Last name</th>
-              </thead>
-              <tbody>
-                {rows}
-              </tbody>
-            </table>
-    )
-}
 
 const App: React.FC = () => {
   return (
