@@ -1,1 +1,4 @@
-docker build -f docker/Dockerfile.frontend -t frontend .
+docker build \
+       -f docker/Dockerfile.frontend \
+       -t frontend \
+       .
