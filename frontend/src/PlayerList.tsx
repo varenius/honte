@@ -14,7 +14,7 @@ type PlayerListProps = {
 
 const PlayerList = ({players}: PlayerListProps) => {
     var rows = players.map((player) => (
-            <tr><td>{player.firstName}</td><td>{player.lastName}</td></tr>
+            <tr key={player.firstName}><td>{player.firstName}</td><td>{player.lastName}</td></tr>
     ))
     return (
         <table className="table table-hover">
