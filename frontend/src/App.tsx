@@ -6,19 +6,24 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 const backend_url = 'http://localhost:3000/api'
 
-type Player = {
-    firstName: string,
-    lastName: string,
+interface ServerPlayer {
+    first_name: string;
+    last_name: string;
 }
 
 const App: React.FC = () => {
     var [players, setPlayers] = useState([]);
     useEffect(() => {
-        fetch(
-            backend_url + '/vinst/')
-            .then((response) => response.json())
-            .then((data) => {
-                setPlayers(data.players);
+        fetch(backend_url + '/players/')
+            .then(response => response.json())
+            .then((data) => data.map((player: ServerPlayer) => (
+            {
+                firstName: player.first_name,
+                lastName: player.last_name,
+            }
+            )))
+            .then(playerList => {
+                setPlayers(playerList);
             })
     },
               []);
