@@ -1,7 +1,12 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
 
-import main.views as views
+from . import views
+
+
+router = routers.DefaultRouter()
+router.register(r'players', views.PlayerViewSet)
 
 urlpatterns = [
-    path('vinst/', views.vinst)
+    path('', include(router.urls)),
 ]

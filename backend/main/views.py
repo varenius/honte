@@ -1,8 +1,12 @@
-from django.shortcuts import render
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
+from rest_framework import viewsets
 
-# Create your views here.
-@api_view(['GET'])
-def vinst(request):
-    return Response(dict(players=[dict(firstName="vinst", lastName="vinst")]))
+from .models import Player
+from .serializers import PlayerSerializer
+
+
+class PlayerViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows players to be viewed or edited.
+    """
+    queryset = Player.objects.all().order_by('rating')
+    serializer_class = PlayerSerializer
