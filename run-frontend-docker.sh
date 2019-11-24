@@ -1,3 +1,4 @@
+#!/bin/bash
 docker run \
        --rm -it \
        -v /home/user/prog/honte:/home/user/prog/honte \
