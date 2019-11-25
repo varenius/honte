@@ -6,9 +6,9 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 const backend_url = 'http://localhost:3000/api'
 
-interface ServerPlayer {
-    first_name: string;
-    last_name: string;
+interface Player {
+    firstName: string;
+    lastName: string;
 }
 
 const App: React.FC = () => {
@@ -16,12 +16,6 @@ const App: React.FC = () => {
     useEffect(() => {
         fetch(backend_url + '/players/')
             .then(response => response.json())
-            .then((data) => data.map((player: ServerPlayer) => (
-            {
-                firstName: player.first_name,
-                lastName: player.last_name,
-            }
-            )))
             .then(playerList => {
                 setPlayers(playerList);
             })
