@@ -9,4 +9,5 @@ router.register(r'players', views.PlayerViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('add', views.add_player)
 ]
