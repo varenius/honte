@@ -5,10 +5,9 @@ services:
       context: .
       dockerfile: docker/frontend.dockerfile
     volumes:
-      - type: bind
-        source: .
-        target: /honte
-    working_dir: /honte/frontend
+        - ./frontend/src:/frontend/src
+        - ./frontend/public:/frontend/public
+    working_dir: /frontend
     ports:
       - "3000:3000"
   backend:

@@ -5,4 +5,4 @@ COPY backend/Pipfile.lock /honte/backend/Pipfile.lock
 WORKDIR /honte/backend
 RUN pip install pipenv
 RUN pipenv install --system
-CMD python -u manage.py runserver 0:8000
+CMD python manage.py migrate && python manage.py runserver 0:8000
