@@ -6,8 +6,10 @@ from . import views
 
 router = routers.DefaultRouter()
 router.register(r'players', views.PlayerViewSet)
+router.register(r'games', views.GameViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('add', views.add_player)
+    path('add_player', views.add_player),
+    path('add_game', views.add_game)
 ]
