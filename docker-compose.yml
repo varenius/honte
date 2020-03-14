@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend.dockerfile
+    volumes:
+      - type: bind
+        source: .
+        target: /honte
+    working_dir: /honte/frontend
+    ports:
+      - "3000:3000"
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend.dockerfile
+    volumes:
+      - ./:/honte
+    working_dir: /honte/backend
+    ports:
+      - "8000:8000"
+    tty: true
