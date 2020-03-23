@@ -1,19 +1,26 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+
+const backend_url = 'http://localhost:3000/api'
 
 
-type Player = {
-    firstName: string,
-    lastName: string,
+interface Player {
+    firstName: string;
+    lastName: string;
 }
 
 
-type PlayerListProps = {
-    players: Array<Player>,
-}
+const PlayerList = () => {
+    var [players, setPlayers] = useState([]);
+    useEffect(() => {
+        fetch(backend_url + '/players/')
+            .then(response => response.json())
+            .then(playerList => {
+                setPlayers(playerList);
+            })
+    },
+              []);
 
-
-const PlayerList = ({players}: PlayerListProps) => {
-    var rows = players.map((player) => (
+    const rows = players.map((player: Player) => (
             <tr key={player.firstName}><td>{player.firstName}</td><td>{player.lastName}</td></tr>
     ))
     return (

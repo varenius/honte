@@ -1,34 +1,52 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.css'
+
 import {PlayerList} from './PlayerList';
 import logo from './logo.svg';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.css'
 
-const backend_url = 'http://localhost:3000/api'
 
-interface Player {
-    firstName: string;
-    lastName: string;
+const Home: React.FC = () => {
+    return (
+        <h3>Home</h3>
+    )
+}
+
+const GamesList: React.FC = () => {
+    return (
+        <h3>Games</h3>
+    )
 }
 
 const App: React.FC = () => {
-    var [players, setPlayers] = useState([]);
-    useEffect(() => {
-        fetch(backend_url + '/players/')
-            .then(response => response.json())
-            .then(playerList => {
-                setPlayers(playerList);
-            })
-    },
-              []);
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                Honte
-            </header>
-            <PlayerList players={players} />
-        </div>
+        <Router>
+            <div className="App">
+                <header className="App-header">
+                    <div className="App-title">
+                        <img src={logo} className="App-logo" alt="logo" />
+                        Honte
+                    </div>
+                    <nav className="App-menu">
+                        <ul>
+                            <li>
+                                <Link to="/">Home</Link>
+                            </li>
+                            <li>
+                                <Link to="/players">Players</Link>
+                            </li>
+                            <li>
+                                <Link to="/games">Games</Link>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                <Route path="/" exact component={Home} />
+                <Route path="/players" component={PlayerList} />
+                <Route path="/games" exact component={GamesList} />
+            </div>
+        </Router>
     );
 }
 
