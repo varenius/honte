@@ -17,6 +17,6 @@ docker-compose up --build
 Browse to http://localhost:3000
 
 # Endpoints
-- http://localhost:3000/api/add_player Add random player
-- http://localhost:3000/api/add_game Add random game
+- http://localhost:8000/api/add_player Add random player
+- http://localhost:8000/api/add_game Add random game
 
