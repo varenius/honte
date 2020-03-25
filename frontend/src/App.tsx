@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css'
 
 import {PlayerList} from './PlayerList';
+import {GamesList} from './GamesList';
 import logo from './logo.svg';
 import './App.css';
 
@@ -10,12 +11,6 @@ import './App.css';
 const Home: React.FC = () => {
     return (
         <h3>Home</h3>
-    )
-}
-
-const GamesList: React.FC = () => {
-    return (
-        <h3>Games</h3>
     )
 }
 

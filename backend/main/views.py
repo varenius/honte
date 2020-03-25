@@ -1,13 +1,14 @@
+import random
+
+from django.http import HttpResponse
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-import random
 
 from .models import Player
 from .models import Game
 from .serializers import PlayerSerializer
 from .serializers import GameSerializer
-from django.http import HttpResponse
 from .name_generator import get_name
 
 
