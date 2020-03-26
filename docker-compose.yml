@@ -5,8 +5,7 @@ services:
       context: .
       dockerfile: docker/frontend.dockerfile
     volumes:
-        - ./frontend/src:/frontend/src
-        - ./frontend/public:/frontend/public
+        - ./frontend:/frontend
     working_dir: /frontend
     ports:
       - "3000:3000"
