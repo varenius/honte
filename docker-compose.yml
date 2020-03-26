@@ -1,6 +1,7 @@
 version: "3.7"
 services:
   frontend:
+    user: "${UID}:${GID}"
     build:
       context: .
       dockerfile: docker/frontend.dockerfile
@@ -10,6 +11,7 @@ services:
     ports:
       - "3000:3000"
   backend:
+    user: "${UID}:${GID}"
     build:
       context: .
       dockerfile: docker/backend.dockerfile
