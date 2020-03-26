@@ -3,8 +3,8 @@ services:
   frontend:
     user: "${UID}:${GID}"
     build:
-      context: .
-      dockerfile: docker/frontend.dockerfile
+      context: frontend/
+      dockerfile: ../docker/frontend.dockerfile
     volumes:
         - ./frontend:/frontend
     working_dir: /frontend
@@ -13,11 +13,11 @@ services:
   backend:
     user: "${UID}:${GID}"
     build:
-      context: .
-      dockerfile: docker/backend.dockerfile
+      context: backend/
+      dockerfile: ../docker/backend.dockerfile
     volumes:
-      - ./:/honte
-    working_dir: /honte/backend
+      - ./backend/:/backend
+    working_dir: /backend
     ports:
       - "8000:8000"
     tty: true
