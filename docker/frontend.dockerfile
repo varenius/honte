@@ -6,4 +6,4 @@ WORKDIR /tmp
 RUN yarn install
 
 WORKDIR /frontend
-CMD cp /tmp/yarn.lock yarn.lock && yarn start
+CMD cp /tmp/package.json /tmp/yarn.lock . && yarn start
